@@ -16,6 +16,16 @@ interface SignupResponse {
   username: string;
 }
 
+interface SignedinResponse {
+  authenticated: boolean;
+  username: string;
+}
+
+interface SigninCredentials {
+  username: string | null;
+  password: string | null;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,20 +38,32 @@ export class AuthService {
   ) { }
 
   usernameAvailable(username: string) {
-    return this.http.post<UsernameAvailableResponse>(`${this.rootUrl}/auth/username`, {
+    return this.http.post<UsernameAvailableResponse>(`${this.rootUrl}/auth/username/`, {
       username,
     });
   }
 
   signup(credentials: Partial<SignupCredentials>) {
-    return this.http.post<SignupResponse>(`${this.rootUrl}/auth/signup`, credentials, {
-      withCredentials: true
-    }).pipe(
+    return this.http.post<SignupResponse>(`${this.rootUrl}/auth/signup/`, credentials).pipe(
       tap(() => this.signedIn$.next(true))
     );
   }
 
   checkAuth() {
-    return this.http.get(`${this.rootUrl}/auth/signin`, { withCredentials: true });
+    return this.http.get<SignedinResponse>(`${this.rootUrl}/auth/signedin/`).pipe(
+      tap(({ authenticated }) => this.signedIn$.next(authenticated))
+    );
+  }
+
+  signout() {
+    return this.http.post(`${this.rootUrl}/auth/signout`, {}).pipe(
+      tap(() => this.signedIn$.next(false))
+    );
+  }
+
+  signin(credentials: Partial<SigninCredentials>) {
+    return this.http.post(`${this.rootUrl}/auth/signin/`, credentials).pipe(
+      tap(() => this.signedIn$.next(true))
+    );
   }
 }

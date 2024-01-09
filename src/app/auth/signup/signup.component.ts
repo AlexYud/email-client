@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatchPassword } from '../validators/match-password';
 import { UniqueUsername } from '../validators/unique-username';
 import { AuthService } from '../auth.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
