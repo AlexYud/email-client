@@ -4,5 +4,14 @@
   <app-input inputType="text" label="Username" [control]="authForm.controls.username"></app-input>
   <app-input inputType="password" label="Password" [control]="authForm.controls.password"></app-input>
 
-  <button class="ui submit button primary">Submit</button>
+  @if (authForm.errors) {
+  <div class="ui red basic label">
+    @if (authForm.errors['noConnection']) { <p>No internet connection detected, failed to sign up</p> }
+    @if (authForm.errors['credentials']) { <p>Invalid username or password</p> }
+  </div>
+  }
+
+  <div>
+    <button class="ui submit button primary">Submit</button>
+  </div>
 </form>
