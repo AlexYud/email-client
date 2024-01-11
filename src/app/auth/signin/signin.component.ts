@@ -32,9 +32,7 @@ export class SigninComponent {
     if (this.authForm.invalid) return;
     this.authService.signin(this.authForm.value).subscribe({
       next: () => this.router.navigateByUrl('/inbox'),
-      error: ({ error }) => {
-        if (error.username || error.password) this.authForm.setErrors({ credentials: true });
-      },
+      error: ({ error }) => (error.username || error.password) ? this.authForm.setErrors({ credentials: true }) : ''
     });
   }
 }

@@ -31,7 +31,7 @@ interface SigninCredentials {
 })
 export class AuthService {
   rootUrl = 'https://api.angular-email.com';
-  signedIn$ = new BehaviorSubject(false);
+  signedIn$ = new BehaviorSubject<boolean | null>(null);
 
   constructor(
     private http: HttpClient,
@@ -57,7 +57,7 @@ export class AuthService {
 
   signout() {
     return this.http.post(`${this.rootUrl}/auth/signout`, {}).pipe(
-      tap(() => this.signedIn$.next(false))
+      tap(() => this.signedIn$.next(null))
     );
   }
 
