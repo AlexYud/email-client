@@ -1,9 +1,14 @@
 <div class="field">
   <label>{{ label}}</label>
-  <input [type]="inputType" [formControl]="control">
+
+  @if (controlType === 'input') {<input [type]="inputType" [formControl]="control">}
+
+  @if (controlType === 'textarea') {<textarea [formControl]="control"></textarea>}
+
   @if (showErrors()) {
   <div class="ui pointing red basic label">
     @if (control.errors?.['required']) { <p>Value is required</p> }
+    @if (control.errors?.['email']) { <p>Enter a valid email</p> }
     @if (control.errors?.['minlength']) { <p>Value entered is {{ control.errors?.['minlength'].actualLength }} characters long, but it must be at least {{ control.errors?.['minlength'].requiredLength }} characters</p> }
     @if (control.errors?.['maxlength']) { <p>Value entered is {{ control.errors?.['maxlength'].actualLength }} characters long, but it cannot be longer than {{ control.errors?.['maxlength'].requiredLength }} characters</p> }
     @if (control.errors?.['pattern']) { <p>Invalid format</p> }

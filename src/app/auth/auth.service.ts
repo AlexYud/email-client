@@ -26,12 +26,17 @@ interface SigninCredentials {
   password: string | null;
 }
 
+interface SigninResponse {
+  username: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   rootUrl = 'https://api.angular-email.com';
   signedIn$ = new BehaviorSubject<boolean | null>(null);
+  username = '';
 
   constructor(
     private http: HttpClient,
@@ -45,13 +50,19 @@ export class AuthService {
 
   signup(credentials: Partial<SignupCredentials>) {
     return this.http.post<SignupResponse>(`${this.rootUrl}/auth/signup/`, credentials).pipe(
-      tap(() => this.signedIn$.next(true))
+      tap(({ username }) => {
+        this.signedIn$.next(true);
+        this.username = username;
+      })
     );
   }
 
   checkAuth() {
     return this.http.get<SignedinResponse>(`${this.rootUrl}/auth/signedin/`).pipe(
-      tap(({ authenticated }) => this.signedIn$.next(authenticated))
+      tap(({ authenticated, username }) => {
+        this.signedIn$.next(authenticated);
+        this.username = username;
+      })
     );
   }
 
@@ -62,8 +73,11 @@ export class AuthService {
   }
 
   signin(credentials: Partial<SigninCredentials>) {
-    return this.http.post(`${this.rootUrl}/auth/signin/`, credentials).pipe(
-      tap(() => this.signedIn$.next(true))
+    return this.http.post<SigninResponse>(`${this.rootUrl}/auth/signin/`, credentials).pipe(
+      tap(({ username }) => {
+        this.signedIn$.next(true);
+        this.username = username;
+      })
     );
   }
 }
