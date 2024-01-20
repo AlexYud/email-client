@@ -1,5 +1,7 @@
 # Emailclient
 
+> Simple email client app made in angular 17 with modules for practicing.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
 ## Development server
