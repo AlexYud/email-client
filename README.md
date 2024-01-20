@@ -1,6 +1,9 @@
-# Emailclient
+# Email Client
 
-> Simple email client app made in angular 17 with modules for practicing.
+> Email client made in angular 17 with modules.
+
+**Check it out [here](https://email-client-jet-kappa.vercel.app/) 👈.**
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
