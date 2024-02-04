@@ -1,0 +1,29 @@
+#img-container {
+  display: none;
+}
+
+.grid {
+  height: 100%;
+  width: 101vw;
+  align-items: center;
+}
+
+.column {
+  height: 60%;
+  width: 100vw;
+  padding: 0;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 763px) {
+  #img-container {
+    display: block;
+  }
+}

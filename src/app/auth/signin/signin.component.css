@@ -1,3 +1,37 @@
 .basic.label {
   margin-bottom: 0.5em;
 }
+
+.segment {
+  width: 200px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.subtitle {
+  color: gray;
+  font-weight: 100;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkbox label {
+  margin-left: 8px;
+}
+
+@media (min-width: 763px) {
+  .segment {
+    width: 350px;
+  }
+}

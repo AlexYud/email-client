@@ -1,17 +1,27 @@
-<h3>Sign In</h3>
-
-<form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
-  <app-input inputType="text" label="Username" [control]="authForm.controls.username"></app-input>
-  <app-input inputType="password" label="Password" [control]="authForm.controls.password"></app-input>
-
-  @if (authForm.errors) {
-  <div class="ui red basic label">
-    @if (authForm.errors['noConnection']) { <p>No internet connection detected, failed to sign up</p> }
-    @if (authForm.errors['credentials']) { <p>Invalid username or password</p> }
+<div class="segment">
+  <div class="ui header">
+    <h1 class="title">Log in</h1>
+    <p class="subtitle">Welcome back! Please log into your account.</p>
   </div>
-  }
 
-  <div>
-    <button class="ui submit button primary">Submit</button>
-  </div>
-</form>
+  <form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <app-input inputType="text" label="Username" [control]="authForm.controls.username"></app-input>
+    <app-input inputType="password" label="Password" [control]="authForm.controls.password"></app-input>
+
+    @if (authForm.errors) {
+    <div class="ui red basic label">
+      @if (authForm.errors['noConnection']) { <p>No internet connection detected, failed to sign up</p> }
+      @if (authForm.errors['credentials']) { <p>Invalid username or password</p> }
+    </div>
+    }
+
+    <div class="checkbox">
+      <input type="checkbox" name="rememberMe">
+      <label>Remember me</label>
+    </div>
+
+    <div>
+      <button class="ui submit button primary">Submit</button>
+    </div>
+  </form>
+</div>

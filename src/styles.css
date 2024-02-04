@@ -1,3 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'semantic-ui-css/semantic.css';
+
+:root {
+  --light-purple: #6435c9;
+  --dark-purple: #45258a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.ui.primary.button {
+  background-color: var(--light-purple);
+}
+
+.ui.primary.button:hover {
+  background-color: var(--dark-purple);
+}

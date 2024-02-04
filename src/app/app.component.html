@@ -1,4 +1,17 @@
-<div class="ui container">
+<div class="ui stackable mobile reversed equal width grid">
+  <div class="column">
+    <div class="ui section">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div id="img-container" class="column">
+    <div class="ui big image">
+      <img src="/assets/svg/hey.svg" alt="hey">
+    </div>
+  </div>
+</div>
+
+<!-- <div class="ui container">
   <div class="ui secondary pointing menu">
     <a routerLink="/" class="item">Angular Email</a>
     <div class="right menu">
@@ -12,4 +25,4 @@
     </div>
   </div>
   <router-outlet></router-outlet>
-</div>
+</div> -->
