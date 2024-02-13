@@ -3,11 +3,11 @@
 }
 
 .segment {
-  width: 200px;
+  width: 75vw;
 }
 
 .header {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .title {
@@ -26,12 +26,48 @@
   align-items: center;
 }
 
+.checkbox input[type='checkbox'] {
+  accent-color: var(--light-purple);
+}
+
 .checkbox label {
   margin-left: 8px;
 }
 
+.forgot-password {
+  text-align: center;
+}
+
+.forgot-password:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: 40px;
+}
+
+.sign-up {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.sign-up span{
+  color: var(--light-purple);
+  font-weight: 900;
+}
+
+.sign-up span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 @media (min-width: 763px) {
   .segment {
-    width: 350px;
+    width: 25vw;
+  }
+  .forgot-password {
+    text-align: end;
   }
 }

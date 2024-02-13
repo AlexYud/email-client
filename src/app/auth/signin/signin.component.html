@@ -15,13 +15,27 @@
     </div>
     }
 
-    <div class="checkbox">
-      <input type="checkbox" name="rememberMe">
-      <label>Remember me</label>
+    <div class="ui stackable equal width grid">
+      <div class="column">
+        <div class="checkbox">
+          <input type="checkbox" name="rememberMe">
+          <label>Remember me</label>
+        </div>
+      </div>
+      <div class="column">
+        <div class="subtitle forgot-password">Forgot Password?</div>
+      </div>
     </div>
 
-    <div>
-      <button class="ui submit button primary">Submit</button>
+    <div class="footer">
+      <button class="ui animated submit button primary fluid big" tabindex="0">
+        <div class="visible content">Log in</div>
+        <div class="hidden content">
+          <i class="sign-in icon"></i>
+        </div>
+      </button>
+
+      <div class="sign-up subtitle">New user? <span routerLink="/signup">Sign up</span></div>
     </div>
   </form>
 </div>

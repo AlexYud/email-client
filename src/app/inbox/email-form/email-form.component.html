@@ -4,5 +4,10 @@
   <app-input inputType="text" label="Subject" [control]="emailForm.controls.subject"></app-input>
   <app-input controlType="textarea" label="Content" [control]="emailForm.controls.text"></app-input>
 
-  <button class="ui button primary">Send</button>
+  <button class="ui fluid animated button primary" tabindex="0">
+    <div class="visible content">Send</div>
+    <div class="hidden content">
+      <i class="paper plane icon"></i>
+    </div>
+  </button>
 </form>

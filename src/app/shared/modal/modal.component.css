@@ -9,3 +9,12 @@
 .actions:empty + .actions-default {
   display: block;
 }
+
+.ui.modal .header {
+  background: var(--light-purple);
+  color: white;
+}
+
+.ui.modal .icon {
+  color: white;
+}

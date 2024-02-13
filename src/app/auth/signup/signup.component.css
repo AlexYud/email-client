@@ -5,3 +5,47 @@
 .button {
   margin-bottom: 0.5em;
 }
+
+.segment {
+  width: 75vw;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.subtitle {
+  color: gray;
+  font-weight: 100;
+}
+
+.footer {
+  margin-top: 40px;
+}
+
+.sign-in {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.sign-in span{
+  color: var(--light-purple);
+  font-weight: 900;
+}
+
+.sign-in span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (min-width: 763px) {
+  .segment {
+    width: 25vw;
+  }
+}

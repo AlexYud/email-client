@@ -1,23 +1,36 @@
-<h3>Create an Account</h3>
-<form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
-  <app-input inputType="text" label="Username" [control]="authForm.controls.username"></app-input>
-  <app-input inputType="password" label="Password" [control]="authForm.controls.password"></app-input>
-  <app-input inputType="password" label="Password Confirmation"
-    [control]="authForm.controls.passwordConfirmation"></app-input>
-
-  @if (
-  authForm.get('password')?.touched &&
-  authForm.get('passwordConfirmation')?.touched &&
-  authForm.errors
-  ) {
-  <div class="ui red basic label">
-    @if (authForm.errors['passwordsDontMatch']) { <p>Password and Password Confirmation must match</p> }
-    @if (authForm.errors['noConnection']) { <p>No internet connection detected, failed to sign up</p> }
-    @if (authForm.errors['unknownError']) { <p>Failed to sign up</p> }
+<div class="segment">
+  <div class="ui header">
+    <h1 class="title">Create account</h1>
+    <p class="subtitle">Let's get started!</p>
   </div>
-  }
 
-  <div>
-    <button class="ui submit button primary">Submit</button>
-  </div>
-</form>
+  <form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <app-input inputType="text" label="Username" [control]="authForm.controls.username"></app-input>
+    <app-input inputType="password" label="Password" [control]="authForm.controls.password"></app-input>
+    <app-input inputType="password" label="Password Confirmation"
+      [control]="authForm.controls.passwordConfirmation"></app-input>
+
+    @if (
+    authForm.get('password')?.touched &&
+    authForm.get('passwordConfirmation')?.touched &&
+    authForm.errors
+    ) {
+    <div class="ui red basic label">
+      @if (authForm.errors['passwordsDontMatch']) { <p>Password and Password Confirmation must match</p> }
+      @if (authForm.errors['noConnection']) { <p>No internet connection detected, failed to sign up</p> }
+      @if (authForm.errors['unknownError']) { <p>Failed to sign up</p> }
+    </div>
+    }
+
+    <div class="footer">
+      <button class="ui animated submit button primary fluid big" tabindex="0">
+        <div class="visible content">Sign up</div>
+        <div class="hidden content">
+          <i class="arrow right icon"></i>
+        </div>
+      </button>
+
+      <div class="sign-in subtitle">Have an account? <span routerLink="/">Log in</span></div>
+    </div>
+  </form>
+</div>
